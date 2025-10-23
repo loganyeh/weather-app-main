@@ -24,47 +24,52 @@
 
   <div id="container" class="grid grid-cols-11 grid-rows-11 border-4 border-red-600 h-screen w-screen">
       <!-- HEADER -->
-      <div id="weather-now"></div>
-      <div id="units"></div>
-      <div id="quote"></div>
-      <div id="search-container">
-        <input type="text" id="input-bar">
-        <button id="search-button"></button>
+      <div id="weather-now" class="border-2 border-red-600 row-start-1 row-end-2 col-start-2 col-end-4">Weather Now</div>
+      <div id="units" class="border-2 border-red-600 row-start-1 row-end-1 col-start-10 col-end-11">Units ^</div>
+      <div id="quote" class="border-4 border-black row-start-2 row-end-3 col-start-4 col-end-10">How's the sky today?</div>
+      <div id="search-container" class="flex justify-around border-2 border-red-600 row-start-4 row-end-5 col-start-4 col-end-10">
+        <input type="text" id="input-bar" placeholder="Search for a place..." style="cursor: autofocus;" class="cursor-pointer pl-2 border-2 border-blue-600 rounded-xl">
+        <button id="search-button" class="border-2 border-black cursor-pointer">Search</button>
       </div>
 
       <!-- CURRENT CITY BLOCK -->
-      <div id="current-city-weather"></div>
-      <div id="current-weather-details-container">
-        <div id="feels-like"></div>
-        <div id="humidity"></div>
-        <div id="wind"></div>
-        <div id="precipitation"></div>
+      <div id="current-city-weather" class="border-2 border-red-600 row-start-6 row-end-8 col-start-2 col-end-8"></div>
+      <div id="current-weather-details-container" class="flex justify-around border-2 border-blue-600 row-start-8 row-end-9 col-start-2 col-end-8">
+        <div id="feels-like" class="border-2 border-black h-full w-32 rounded-2xl"></div>
+        <div id="humidity" class="border-2 border-black h-full w-32 rounded-2xl"></div>
+        <div id="wind" class="border-2 border-black h-full w-32 rounded-2xl"></div>
+        <div id="precipitation" class="border-2 border-black h-full w-32 rounded-2xl"></div>
       </div>
 
       <!-- DAILY FORECAST BLOCK -->
-      <div id="daily-forecast-title"></div>
-      <div id="daily-forecast-container">
-        <div id="day-1"></div>
-        <div id="day-2"></div>
-        <div id="day-3"></div>
-        <div id="day-4"></div>
-        <div id="day-5"></div>
-        <div id="day-6"></div>
-        <div id="day-7"></div>
+      <div id="daily-forecast-title" class="border-2 border-black row-start-9 row-end-10 col-start-2 col-end-3">Daily Forecast</div>
+      <div id="daily-forecast-container" class="flex justify-around border-2 border-red-600 row-start-10 row-end-12 col-start-2 col-end-8">
+        <div id="day-1" class="border-2 border-black h-full w-28 rounded-3xl"></div>
+        <div id="day-2" class="border-2 border-black h-full w-28 rounded-3xl"></div>
+        <div id="day-3" class="border-2 border-black h-full w-28 rounded-3xl"></div>
+        <div id="day-4" class="border-2 border-black h-full w-28 rounded-3xl"></div>
+        <div id="day-5" class="border-2 border-black h-full w-28 rounded-3xl"></div>
+        <div id="day-6" class="border-2 border-black h-full w-28 rounded-3xl"></div>
+        <div id="day-7" class="border-2 border-black h-full w-28 rounded-3xl"></div>
       </div>
 
       <!-- HOURLY FORECAST BLOCK -->
-      <div id="hourly-forecast-container">
-        <h4 id="hourly-forecast-title"></h4>
-        <div id="hourly-forecast-dropdown"></div>
-        <div id="hour-1"></div>
-        <div id="hour-2"></div>
-        <div id="hour-3"></div>
-        <div id="hour-4"></div>
-        <div id="hour-5"></div>
-        <div id="hour-6"></div>
-        <div id="hour-7"></div>
-        <div id="hour-8"></div>
+      <div id="hourly-forecast-container" class="border-2 border-red-600 row-start-6 row-end-12 col-start-9 col-end-11">
+        <div id="hourly-forecast-sub-container">
+          <div id="hourly-forecast-title"></div>
+          <div id="hourly-forecast-dropdown"></div>
+        </div>
+        <div id="weather-times">
+          <div id="hour-1"></div>
+          <div id="hour-2"></div>
+          <div id="hour-3"></div>
+          <div id="hour-4"></div>
+          <div id="hour-5"></div>
+          <div id="hour-6"></div>
+          <div id="hour-7"></div>
+          <div id="hour-8"></div>
+        </div>
+        
       </div>
 
   </div>
