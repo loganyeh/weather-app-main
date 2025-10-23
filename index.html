@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Weather app</title>
-
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-clifford: #da373d;
+    }
+  </style>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -15,6 +21,55 @@
   </style>
 </head>
 <body>
+
+  <div id="container" class="grid grid-cols-11 grid-rows-11 border-4 border-red-600 h-screen w-screen">
+      <!-- HEADER -->
+      <div id="weather-now"></div>
+      <div id="units"></div>
+      <div id="quote"></div>
+      <div id="search-container">
+        <input type="text" id="input-bar">
+        <button id="search-button"></button>
+      </div>
+
+      <!-- CURRENT CITY BLOCK -->
+      <div id="current-city-weather"></div>
+      <div id="current-weather-details-container">
+        <div id="feels-like"></div>
+        <div id="humidity"></div>
+        <div id="wind"></div>
+        <div id="precipitation"></div>
+      </div>
+
+      <!-- DAILY FORECAST BLOCK -->
+      <div id="daily-forecast-title"></div>
+      <div id="daily-forecast-container">
+        <div id="day-1"></div>
+        <div id="day-2"></div>
+        <div id="day-3"></div>
+        <div id="day-4"></div>
+        <div id="day-5"></div>
+        <div id="day-6"></div>
+        <div id="day-7"></div>
+      </div>
+
+      <!-- HOURLY FORECAST BLOCK -->
+      <div id="hourly-forecast-container">
+        <h4 id="hourly-forecast-title"></h4>
+        <div id="hourly-forecast-dropdown"></div>
+        <div id="hour-1"></div>
+        <div id="hour-2"></div>
+        <div id="hour-3"></div>
+        <div id="hour-4"></div>
+        <div id="hour-5"></div>
+        <div id="hour-6"></div>
+        <div id="hour-7"></div>
+        <div id="hour-8"></div>
+      </div>
+
+  </div>
+
+
 
   Units
 
@@ -58,9 +113,13 @@
   Hourly forecast
   <!-- Insert hourly forecast for the selected day here -->
 
-  <div class="attribution">
+  
+
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div> -->
+
+
 </body>
 </html>
