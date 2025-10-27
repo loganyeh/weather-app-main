@@ -22,14 +22,22 @@
 </head>
 <body>
 
-  <div id="container" class="grid grid-cols-11 grid-rows-11 border-4 border-red-600 h-screen w-screen">
+  <div id="container" class="font-mono grid grid-cols-11 grid-rows-11 border-4 border-red-600 h-screen w-screen">
       <!-- HEADER -->
-      <div id="weather-now" class="border-2 border-red-600 row-start-1 row-end-2 col-start-2 col-end-4">Weather Now</div>
-      <div id="units" class="border-2 border-red-600 row-start-1 row-end-1 col-start-10 col-end-11">Units ^</div>
-      <div id="quote" class="border-4 border-black row-start-2 row-end-3 col-start-4 col-end-10">How's the sky today?</div>
-      <div id="search-container" class="flex justify-around border-2 border-red-600 row-start-4 row-end-5 col-start-4 col-end-10">
-        <input type="text" id="input-bar" placeholder="Search for a place..." style="cursor: autofocus;" class="cursor-pointer pl-2 border-2 border-blue-600 rounded-xl">
-        <button id="search-button" class="border-2 border-black cursor-pointer">Search</button>
+      <div id="weather-now" class="flex justify-center items-center text-2xl border-2 border-red-600 row-start-1 row-end-2 col-start-2 col-end-4">
+        Weather Now
+      </div>
+      <div id="units" class="flex justify-center items-center border-2 border-red-600 row-start-1 row-end-1 col-start-10 col-end-11">
+        <select name="units" id="units-select" class="border-2 border-black h-1/2 rounded-xl">
+          <option value="">Units</option>
+          <option value="Fahrenheit">Fahrenheit</option>
+          <option value="Celsius">Celsius</option>
+        </select>
+      </div>
+      <div id="quote" class="flex justify-center items-center text-5xl border-4 border-black row-start-2 row-end-3 col-start-4 col-end-10">How's the sky looking today?</div>
+      <div id="search-container" class="grid items-center grid-cols-12 grid-rows-1 justify-around border-2 border-red-600 row-start-4 row-end-5 col-start-4 col-end-10">
+        <input type="text" id="input-bar" placeholder="Search for a place..." style="cursor: autofocus;" class="h-2/3 col-start-2 col-end-9 hover:bg-gray-100 cursor-pointer pl-2 border-2 border-blue-600 rounded-xl">
+        <button id="search-button" class="rounded-xl h-2/3 col-start-10 col-end-12 hover:bg-blue-300 active:bg-blue-500 active:text-white border-2 border-black cursor-pointer">Search</button>
       </div>
 
       <!-- CURRENT CITY BLOCK -->
@@ -42,7 +50,7 @@
       </div>
 
       <!-- DAILY FORECAST BLOCK -->
-      <div id="daily-forecast-title" class="border-2 border-black row-start-9 row-end-10 col-start-2 col-end-3">Daily Forecast</div>
+      <div id="daily-forecast-title" class="text-xl flex justify-start items-center border-2 border-black row-start-9 row-end-10 col-start-2 col-end-4">Daily Forecast</div>
       <div id="daily-forecast-container" class="flex justify-around border-2 border-red-600 row-start-10 row-end-12 col-start-2 col-end-8">
         <div id="day-1" class="border-2 border-black h-full w-28 rounded-3xl"></div>
         <div id="day-2" class="border-2 border-black h-full w-28 rounded-3xl"></div>
@@ -57,9 +65,11 @@
       <div id="hourly-forecast-container" class="block border-2 border-black row-start-6 row-end-12 col-start-9 col-end-11">
         <div id="hourly-forecast-sub-container" class="flex justify-between border-2 border-blue-600 w-full h-1/6">
           <div id="hourly-forecast-title" class="border-2 border-black w-1/2 h-full">Hourly Forecast</div>
-          <div id="hourly-forecast-dropdown" class="border-2 border-black w-1/4 h-full">Tuesday</div>
+          <select name="" id="hourly-forecast-dropdown" class="border-2 border-black w-1/4 h-full">
+            <option value="Tuesday">Tuesday</option>
+          </select>
         </div>
-        <div id="weather-times" class="flex flex-col justify-around border-2 border-purple-600 w-full h-5/6">
+        <div id="weather-times-container" class="flex flex-col justify-around border-2 border-purple-600 w-full h-5/6">
           <div id="hour-1" class="border-2 border-black w-full h-16 rounded-2xl"></div>
           <div id="hour-2" class="border-2 border-black w-full h-16 rounded-2xl"></div>
           <div id="hour-3" class="border-2 border-black w-full h-16 rounded-2xl"></div>
@@ -123,6 +133,6 @@
     Coded by <a href="#">Your Name Here</a>.
   </div> -->
 
-
+  <script src="index.js"></script>
 </body>
 </html>
