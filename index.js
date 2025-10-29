@@ -8,11 +8,9 @@ let weatherData = {};
 
 // EVENT LISTENERS
 searchButton.addEventListener("click", () => {
-
     const cityName = inputBar.value;
     // const cleanedCityName = cityName.trimStart();
     // const capitalizedCityName = capitalizeFirstLetter(cleanedCityName);
-
 
     if(inputBar.value == ""){
         // window.alert(`Enter a City.`);
@@ -21,10 +19,11 @@ searchButton.addEventListener("click", () => {
     // else if () MAYBE ADD THING FOR IF THERE IS A NUMBER
     else {
 
+        getWeatherInfo(cityName);
+        // console.log(`weatherData.cityName: ${weatherData.cityName}`); WORKING NOW
         console.log(`First if statement call ${cityName}`);
     }
 
-    getWeatherInfo(cityName);
     clearInputBar();
 
 });
@@ -39,6 +38,11 @@ function clearInputBar(){
 function capitalizeFirstLetter(word){
     const lowercasedString = word.toLowerCase();
     return lowercasedString.charAt(0).toUpperCase() + lowercasedString.slice(1);
+}
+
+function getCurrentTime(){
+    
+
 }
 
 // ASYNCS
@@ -61,17 +65,24 @@ async function getWeatherInfo(city){
     }
 
     // WEATHER FORECAST API
-    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m`);
+    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
-
     console.log(data2);
 
+    weatherData.currentTemperatureFahrenheit = data2.current.temperature_2m;
+    // weatherData.currentTemperatureCelsius = 
+    console.log(`Current Temperature: ${weatherData.currentTemperatureFahrenheit} °F`);
+    weatherData.currentTime = data2.current.time;
+    console.log(`Current Time: ${weatherData.currentTime}`);
+    console.log(`Current Time: ${weatherData.currentTime.slice(11, 13) + weatherData.currentTime.slice(14, 16)}`);
+
+    console.log("--------OLD CALL^^---------");
 }
 
 // SANDBOX
-console.log(".....JS WORKING")
-// getWeatherInfo('Tokyo');
-
+// console.log(".....JS WORKING")
+getWeatherInfo('Atlanta');
+// console.log(`weatherData.cityName: ${weatherData.cityName}`);
 
 
 
