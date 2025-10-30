@@ -9,8 +9,6 @@ let weatherData = {};
 // EVENT LISTENERS
 searchButton.addEventListener("click", () => {
     const cityName = inputBar.value;
-    // const cleanedCityName = cityName.trimStart();
-    // const capitalizedCityName = capitalizeFirstLetter(cleanedCityName);
 
     if(inputBar.value == ""){
         // window.alert(`Enter a City.`);
