@@ -11,18 +11,6 @@ let weatherData = {};
 searchButton.addEventListener("click", async () => {
     const cityName = inputBar.value;
 
-    if(inputBar.value == ""){
-        // window.alert(`Enter a City.`);
-        console.log("Enter a city");
-    } 
-    // else if () MAYBE ADD THING FOR IF THERE IS A NUMBER
-    else {
-
-        getWeatherInfo(cityName);
-        // console.log(`weatherData.cityName: ${weatherData.cityName}`); WORKING NOW
-        console.log(`First if statement call ${cityName}`);
-    }
-
     await getWeatherInfo(cityName);
     updateCityName();
     clearInputBar();
@@ -63,6 +51,12 @@ async function getWeatherInfo(city){
     const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
     // console.log(data2);
+
+    // WORK ON THE TIME STUFF HERE WHERE TO RETIEVE TIME AND MANIPULATE IT STUFF IDK
+    
+
+
+
 
 }
 
