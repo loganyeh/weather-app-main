@@ -21,11 +21,13 @@ searchButton.addEventListener("click", async () => {
 function clearInputBar(){
     inputBar.value = "";
 };
-
 function updateCityName(){
     cityText.innerHTML = `
         ${weatherData.cityName}, ${weatherData.cityState}
     `;
+}
+function updateDate(){
+
 }
 
 // ASYNCS
@@ -54,13 +56,58 @@ async function getWeatherInfo(city){
 
     // WORK ON THE TIME STUFF HERE WHERE TO RETIEVE TIME AND MANIPULATE IT STUFF IDK
     
-
-
-
-
 }
 
 // SANDBOX
+const now = new Date();
+
+let day = now.getDay();
+// let day = 1;
+const month = now.getMonth();
+const date = now.getDate();
+const year = now.getFullYear();
+
+
+// -----DAY-----
+console.log(day);
+console.log(`Before Switch: ${day}`);
+switch(day){
+    case 0: 
+        day = "Sunday";
+        break;
+    case 1: 
+        day = "Monday";
+        break;
+    case 2: 
+        day = "Tuesday";
+        break;
+    case 3: 
+        day = "Wednesday";
+        break;
+    case 4:
+        day = "Thursday";
+        break;
+    case 5: 
+        day = "Friday";
+        break;
+    case 6: 
+        day = "Saturday";
+        break;
+    default: 
+        console.log("Not a valid day of the week");
+}
+
+// ----- MONTH -----
+switch(month){
+    case 
+}
+
+
+
+
+console.log(`After Switch: ${day}`);
+console.log(`${day}. ${month} ${date}, ${year}`);
+
 
 
 
