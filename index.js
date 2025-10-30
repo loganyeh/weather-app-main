@@ -11,6 +11,18 @@ let weatherData = {};
 searchButton.addEventListener("click", async () => {
     const cityName = inputBar.value;
 
+    if(inputBar.value == ""){
+        // window.alert(`Enter a City.`);
+        console.log("Enter a city");
+    } 
+    // else if () MAYBE ADD THING FOR IF THERE IS A NUMBER
+    else {
+
+        getWeatherInfo(cityName);
+        // console.log(`weatherData.cityName: ${weatherData.cityName}`); WORKING NOW
+        console.log(`First if statement call ${cityName}`);
+    }
+
     await getWeatherInfo(cityName);
     updateCityName();
     clearInputBar();
