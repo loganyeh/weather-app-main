@@ -2,12 +2,13 @@
 // DOMS VARIABLES 
 const inputBar = document.getElementById("input-bar");
 const searchButton = document.getElementById("search-button");
+const cityText = document.getElementById("city-text");
 
-// VARIABLES 
+// GLOBAL VARIABLES 
 let weatherData = {};
 
 // EVENT LISTENERS
-searchButton.addEventListener("click", () => {
+searchButton.addEventListener("click", async () => {
     const cityName = inputBar.value;
 
     if(inputBar.value == ""){
@@ -22,35 +23,31 @@ searchButton.addEventListener("click", () => {
         console.log(`First if statement call ${cityName}`);
     }
 
+    await getWeatherInfo(cityName);
+    updateCityName();
     clearInputBar();
 
 });
-
-// CALLS
 
 // FUNCTIONS
 function clearInputBar(){
     inputBar.value = "";
 };
 
-function capitalizeFirstLetter(word){
-    const lowercasedString = word.toLowerCase();
-    return lowercasedString.charAt(0).toUpperCase() + lowercasedString.slice(1);
-}
-
-function getCurrentTime(){
-    
-
+function updateCityName(){
+    cityText.innerHTML = `
+        ${weatherData.cityName}, ${weatherData.cityState}
+    `;
 }
 
 // ASYNCS
 async function getWeatherInfo(city){
-    
     // GEOCODING API URL
+    console.log(`Welcome to ${city}`);
     try {
         const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         weatherData.cityName = data.results[0].name;
         weatherData.cityState = data.results[0].admin1;
@@ -65,22 +62,11 @@ async function getWeatherInfo(city){
     // WEATHER FORECAST API
     const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
-    console.log(data2);
+    // console.log(data2);
 
-    weatherData.currentTemperatureFahrenheit = data2.current.temperature_2m;
-    // weatherData.currentTemperatureCelsius = 
-    console.log(`Current Temperature: ${weatherData.currentTemperatureFahrenheit} °F`);
-    weatherData.currentTime = data2.current.time;
-    console.log(`Current Time: ${weatherData.currentTime}`);
-    console.log(`Current Time: ${weatherData.currentTime.slice(11, 13) + weatherData.currentTime.slice(14, 16)}`);
-
-    console.log("--------OLD CALL^^---------");
 }
 
 // SANDBOX
-// console.log(".....JS WORKING")
-getWeatherInfo('Atlanta');
-// console.log(`weatherData.cityName: ${weatherData.cityName}`);
 
 
 
