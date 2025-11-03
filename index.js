@@ -3,6 +3,7 @@
 const inputBar = document.getElementById("input-bar");
 const searchButton = document.getElementById("search-button");
 const cityText = document.getElementById("city-text");
+const dateText = document.getElementById("date-text");
 
 // GLOBAL VARIABLES 
 let weatherData = {};
@@ -27,8 +28,86 @@ function updateCityName(){
     `;
 }
 function updateDate(){
+    const now = new Date();
+    let day = now.getDay();
+    let month = now.getMonth();
+    let date = now.getDate();
+    let year = now.getFullYear();
 
+    // DATE
+    // -----DAY-----
+    switch(day){
+        case 0: 
+            day = "Sunday";
+            break;
+        case 1: 
+            day = "Monday";
+            break;
+        case 2: 
+            day = "Tuesday";
+            break;
+        case 3: 
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5: 
+            day = "Friday";
+            break;
+        case 6: 
+            day = "Saturday";
+            break;
+        default: 
+            console.log("Not a valid day of the week");
+    }
+    // ----- MONTH -----
+    switch(month){
+        case 0: 
+            month = "Jan";
+            break;
+        case 1: 
+            month = "Feb";
+            break;
+        case 2: 
+            month = "Mar";
+            break;
+        case 3: 
+            month = "Apr";
+            break;
+        case 4: 
+            month = "May";
+            break;
+        case 5: 
+            month = "Jun";
+            break;
+        case 6: 
+            month = "Jul";
+            break;
+        case 7: 
+            month = "Aug";
+            break;
+        case 8: 
+            month = "Sep";
+            break;
+        case 9: 
+            month = "Oct";
+            break;
+        case 10: 
+            month = "Nov";
+            break;
+        case 11: 
+            month = "Dec";
+            break;
+    }
+
+    dateText.innerHTML = `
+        ${day}. ${month} ${date}, ${year}
+    `
 }
+
+// CALLS 
+updateDate();
 
 // ASYNCS
 async function getWeatherInfo(city){
@@ -59,54 +138,8 @@ async function getWeatherInfo(city){
 }
 
 // SANDBOX
-const now = new Date();
-
-let day = now.getDay();
-// let day = 1;
-const month = now.getMonth();
-const date = now.getDate();
-const year = now.getFullYear();
 
 
-// -----DAY-----
-console.log(day);
-console.log(`Before Switch: ${day}`);
-switch(day){
-    case 0: 
-        day = "Sunday";
-        break;
-    case 1: 
-        day = "Monday";
-        break;
-    case 2: 
-        day = "Tuesday";
-        break;
-    case 3: 
-        day = "Wednesday";
-        break;
-    case 4:
-        day = "Thursday";
-        break;
-    case 5: 
-        day = "Friday";
-        break;
-    case 6: 
-        day = "Saturday";
-        break;
-    default: 
-        console.log("Not a valid day of the week");
-}
-
-// ----- MONTH -----
-switch(month){
-    case 
-}
-
-
-
-
-console.log(`After Switch: ${day}`);
-console.log(`${day}. ${month} ${date}, ${year}`);
 
 
 
