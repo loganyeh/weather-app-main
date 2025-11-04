@@ -4,6 +4,7 @@ const inputBar = document.getElementById("input-bar");
 const searchButton = document.getElementById("search-button");
 const cityText = document.getElementById("city-text");
 const dateText = document.getElementById("date-text");
+const weatherTemperatureNumber = document.getElementById("weather-temperature-number");
 
 // GLOBAL VARIABLES 
 let weatherData = {};
@@ -14,8 +15,9 @@ searchButton.addEventListener("click", async () => {
 
     await getWeatherInfo(cityName);
     updateCityName();
+    displayTemp();
     clearInputBar();
-
+    hourlyForecast();
 });
 
 // FUNCTIONS
@@ -29,81 +31,107 @@ function updateCityName(){
 }
 function updateDate(){
     const now = new Date();
-    let day = now.getDay();
-    let month = now.getMonth();
-    let date = now.getDate();
-    let year = now.getFullYear();
+    let dayOfTheWeek = "";
+    weatherData.day = now.getDay();
+    weatherData.month = now.getMonth();
+    weatherData.monthForTemp = now.getMonth() + 1;
+    weatherData.date = now.getDate();
+    weatherData.year = now.getFullYear();
+    weatherData.hour = now.getHours();
+
+    // 2025-11-04T00:00
+
+    // console.log(`Current Time variable in the updateDate() function: ${weatherData.currentTime}`);
 
     // DATE
     // -----DAY-----
-    switch(day){
+    switch(weatherData.day){
         case 0: 
-            day = "Sunday";
+            weatherData.dayOfTheWeek = "Sunday";
             break;
         case 1: 
-            day = "Monday";
+            weatherData.dayOfTheWeek = "Monday";
             break;
         case 2: 
-            day = "Tuesday";
+            weatherData.dayOfTheWeek = "Tuesday";
             break;
         case 3: 
-            day = "Wednesday";
+            weatherData.dayOfTheWeek = "Wednesday";
             break;
         case 4:
-            day = "Thursday";
+            weatherData.dayOfTheWeek = "Thursday";
             break;
         case 5: 
-            day = "Friday";
+            weatherData.dayOfTheWeek = "Friday";
             break;
         case 6: 
-            day = "Saturday";
+            weatherData.dayOfTheWeek = "Saturday";
             break;
         default: 
             console.log("Not a valid day of the week");
     }
     // ----- MONTH -----
-    switch(month){
+    switch(weatherData.month){
         case 0: 
-            month = "Jan";
+            weatherData.monthName = "Jan";
             break;
         case 1: 
-            month = "Feb";
+            weatherData.monthName = "Feb";
             break;
         case 2: 
-            month = "Mar";
+            weatherData.monthName = "Mar";
             break;
         case 3: 
-            month = "Apr";
+            weatherData.monthName = "Apr";
             break;
         case 4: 
-            month = "May";
+            weatherData.monthName = "May";
             break;
         case 5: 
-            month = "Jun";
+            weatherData.monthName = "Jun";
             break;
         case 6: 
-            month = "Jul";
+            weatherData.monthName = "Jul";
             break;
         case 7: 
-            month = "Aug";
+            weatherData.monthName = "Aug";
             break;
         case 8: 
-            month = "Sep";
+            weatherData.monthName = "Sep";
             break;
         case 9: 
-            month = "Oct";
+            weatherData.monthName = "Oct";
             break;
         case 10: 
-            month = "Nov";
+            weatherData.monthName = "Nov";
             break;
         case 11: 
-            month = "Dec";
+            weatherData.monthName = "Dec";
             break;
     }
 
     dateText.innerHTML = `
-        ${day}. ${month} ${date}, ${year}
+        ${weatherData.dayOfTheWeek}. ${weatherData.monthName} ${weatherData.date}, ${weatherData.year}
     `
+}
+function displayTemp(){
+    weatherTemperatureNumber.innerHTML = `
+        ${weatherData.currentTemperature}°;
+    `
+}
+function hourlyForecast(){
+    // weatherData.currentTemperature
+    // weatherData.currentTimeArrayIndex
+    // console.log(weatherData.currentTimeArrayIndex);
+
+    // OK now i need to iterate 8 times and display each times in the hourly forecast
+    console.log("for loop running...");
+    for(let i = weatherData.currentTimeArrayIndex + 5; i < weatherData.currentTimeArrayIndex + 13; i++){
+        count = 1;
+        console.log(`Time at ${weatherData.data2.hourly.time[i]} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
+        count++;
+    }
+
 }
 
 // CALLS 
@@ -113,10 +141,13 @@ updateDate();
 async function getWeatherInfo(city){
     // GEOCODING API URL
     console.log(`Welcome to ${city}`);
+    let temp = 0;
+
     try {
         const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`);
         const data = await response.json();
         // console.log(data);
+        weatherData.data = data;
 
         weatherData.cityName = data.results[0].name;
         weatherData.cityState = data.results[0].admin1;
@@ -133,14 +164,19 @@ async function getWeatherInfo(city){
     const data2 = await response2.json();
     // console.log(data2);
 
-    // WORK ON THE TIME STUFF HERE WHERE TO RETIEVE TIME AND MANIPULATE IT STUFF IDK
+    weatherData.data2 = data2;
+
+    weatherData.currentTime = `${weatherData.year}-${weatherData.month + 1}-0${weatherData.date}T${weatherData.hour}:00`;
+    weatherData.currentTemperature = data2.current.temperature_2m;
+    const currentCityTempInfo = (element => element == weatherData.currentTime);
+    weatherData.currentTimeArrayIndex = (data2.hourly.time.findIndex(currentCityTempInfo));
+
+    // console.log("------TEST------");
     
+
 }
 
 // SANDBOX
-
-
-
 
 
 
