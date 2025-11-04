@@ -18,6 +18,7 @@ searchButton.addEventListener("click", async () => {
     displayTemp();
     clearInputBar();
     hourlyForecast();
+    extraWeatherInfo();
 });
 
 // FUNCTIONS
@@ -157,6 +158,29 @@ function hourlyForecastDay(){
     const select = document.getElementById(`dotw-dropdown`);
     select.value = weatherData.dayOfTheWeek;
 }
+function extraWeatherInfo(){
+    const feelsLikeTemp = document.getElementById("feels-like-temp");
+    feelsLikeTemp.innerHTML = `
+        ${weatherData.apparentTemp}°
+    `
+
+    const humidityUnits = document.getElementById("humidity-units");
+    humidityUnits.innerHTML = `
+        ${weatherData.humidity}%
+    `
+
+    const windUnits = document.getElementById("wind-units");
+    windUnits.innerHTML = `
+        ${weatherData.wind}km/h
+    `
+
+    const precipitationUnits = document.getElementById("precipitation-units");
+    precipitationUnits.innerHTML = `
+        ${weatherData.precipitation}mm
+    `
+
+
+}
 
 // CALLS 
 updateDate();
@@ -185,9 +209,9 @@ async function getWeatherInfo(city){
     }
 
     // WEATHER FORECAST API
-    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m&temperature_unit=fahrenheit`);
+    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
-    // console.log(data2);
+    console.log(data2);
 
     weatherData.data2 = data2;
 
@@ -196,6 +220,14 @@ async function getWeatherInfo(city){
     const currentCityTempInfo = (element => element == weatherData.currentTime);
     weatherData.currentTimeArrayIndex = (data2.hourly.time.findIndex(currentCityTempInfo));
 
+    // FEELS LIKE
+    weatherData.apparentTemp = data2.current.apparent_temperature;
+    // HUMIDITY
+    weatherData.humidity = data2.current.relative_humidity_2m;
+    // WIND
+    weatherData.wind = data2.current.wind_speed_10m;
+    // PRECIPITATION
+    weatherData.precipitation = data2.current.precipitation;
 }
 
 // SANDBOX
