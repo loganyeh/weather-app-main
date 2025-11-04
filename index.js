@@ -120,18 +120,16 @@ function displayTemp(){
     `
 }
 function hourlyForecast(){
-    // weatherData.currentTemperature
-    // weatherData.currentTimeArrayIndex
-    // console.log(weatherData.currentTimeArrayIndex);
-
-    // OK now i need to iterate 8 times and display each times in the hourly forecast
-    console.log("for loop running...");
+    let count = 1;
     for(let i = weatherData.currentTimeArrayIndex + 5; i < weatherData.currentTimeArrayIndex + 13; i++){
-        count = 1;
+        const div = document.getElementById(`temperature-${count}`)
         console.log(`Time at ${weatherData.data2.hourly.time[i]} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
+        div.innerHTML = `
+            ${weatherData.data2.hourly.temperature_2m[i]}°
+        `;
+        
         count++;
     }
-
 }
 
 // CALLS 
