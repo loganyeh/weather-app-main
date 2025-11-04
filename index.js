@@ -122,21 +122,18 @@ function displayTemp(){
 function hourlyForecast(){
     // weatherData.currentTemperature
     // weatherData.currentTimeArrayIndex
-    console.log(weatherData.currentTimeArrayIndex);
+    // console.log(weatherData.currentTimeArrayIndex);
     console.log(weatherData.data2);
-    console.log(weatherData.data2.hourly.temperature_2m[weatherData.currentTimeArrayIndex]);
-    console.log(weatherData.data2.hourly.time[weatherData.currentTimeArrayIndex]);
-
-    console.log(weatherData.data2.hourly.temperature_2m[weatherData.currentTimeArrayIndex + 1]);
-    console.log(weatherData.data2.hourly.time[weatherData.currentTimeArrayIndex + 1]);
+    
 
     // OK now i need to iterate 8 times and display each times in the hourly forecast
-    
+    console.log("for loop running...");
+    for(let i = weatherData.currentTimeArrayIndex + 5; i < weatherData.currentTimeArrayIndex + 8; i++){
+        count = 1;
+        console.log(`Time at ${weatherData.data2.hourly.time[i]} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
+        count++;
+    }
 
-
-
-
-    
 }
 
 // CALLS 
@@ -175,7 +172,7 @@ async function getWeatherInfo(city){
     const currentCityTempInfo = (element => element == weatherData.currentTime);
     weatherData.currentTimeArrayIndex = (data2.hourly.time.findIndex(currentCityTempInfo));
 
-    console.log("------TEST------");
+    // console.log("------TEST------");
     
 
 }
