@@ -153,23 +153,9 @@ function hourlyForecast(){
     let currentTimeSliced = Number(weatherData.data2.current.time.slice(11, 13));
 }
 function hourlyForecastDay(){
-    console.log(weatherData.dayOfTheWeek);
-
-
-    //  LEAVE OFF HERE 
-    // GET TEH DAY OF THE WEEK AND USE THE NUMBER AND COMPARE AND IF MATCH THAT IS 
-    // THE DAY OF THE WEEK
-    for(let i = 0; i < 7; i ++){
-        const div = document.getElementById(`day-${i}`);
-
-        
-
-
-    }
-    
-    // I THINK A FOR or IF STATEMNT I THINK LOOP TO CHANGE THE DAY OF THE WEEK IN THE HOURLY FORECAST
-    
-
+    const div = document.getElementById(`day-${weatherData.day}`);
+    const select = document.getElementById(`dotw-dropdown`);
+    select.value = weatherData.dayOfTheWeek;
 }
 
 // CALLS 
