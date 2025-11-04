@@ -121,19 +121,60 @@ function displayTemp(){
 }
 function hourlyForecast(){
     let count = 1;
+
     for(let i = weatherData.currentTimeArrayIndex + 5; i < weatherData.currentTimeArrayIndex + 13; i++){
-        const div = document.getElementById(`temperature-${count}`)
-        console.log(`Time at ${weatherData.data2.hourly.time[i]} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
+        const div = document.getElementById(`temperature-${count}`);
+        const div2 = document.getElementById(`time-of-day-${count}`);
+        let APM = ""
+
+        // let utc = Number(weatherData.data2.hourly.time[i].slice(11, 13));
+        // const easternHour = (utc - 5 + 24) % 24;
+        // console.log(`EASTERN HOUR: ${easternHour}`);
+
+        if(Number(weatherData.data2.current.time.slice(11, 13) < 12)) {
+            APM = "AM";
+        }
+        else{
+            APM = "PM";
+        }
+
+        console.log(`Time at ${Number(weatherData.data2.hourly.time[i].slice(11, 13))} ${APM} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
+        // PROABBLY FORMAT THE TIME INTO 12 HOUR FORMAT
         div.innerHTML = `
             ${weatherData.data2.hourly.temperature_2m[i]}°
         `;
+        div2.innerHTML =  `
+            ${Number(weatherData.data2.hourly.time[i].slice(11, 13))} ${APM}
+        `
         
         count++;
     }
+
+    let currentTimeSliced = Number(weatherData.data2.current.time.slice(11, 13));
+}
+function hourlyForecastDay(){
+    console.log(weatherData.dayOfTheWeek);
+
+
+    //  LEAVE OFF HERE 
+    // GET TEH DAY OF THE WEEK AND USE THE NUMBER AND COMPARE AND IF MATCH THAT IS 
+    // THE DAY OF THE WEEK
+    for(let i = 0; i < 7; i ++){
+        const div = document.getElementById(`day-${i}`);
+
+        
+
+
+    }
+    
+    // I THINK A FOR or IF STATEMNT I THINK LOOP TO CHANGE THE DAY OF THE WEEK IN THE HOURLY FORECAST
+    
+
 }
 
 // CALLS 
 updateDate();
+hourlyForecastDay();
 
 // ASYNCS
 async function getWeatherInfo(city){
@@ -168,9 +209,6 @@ async function getWeatherInfo(city){
     weatherData.currentTemperature = data2.current.temperature_2m;
     const currentCityTempInfo = (element => element == weatherData.currentTime);
     weatherData.currentTimeArrayIndex = (data2.hourly.time.findIndex(currentCityTempInfo));
-
-    // console.log("------TEST------");
-    
 
 }
 

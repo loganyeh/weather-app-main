@@ -151,20 +151,20 @@
           <div id="forecast-title" class="flex justify-between border-2 border-black h-14 w-full">
             <p class="flex justify-center items-center border-2 border-red-600">Hourly Forecast</p>
             <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="cursor-pointer hover:bg-gray-100 border-2 border-red-600">
-              <option value="sunday">Sunday</option>
-              <option value="monday">Monday</option>
-              <option value="tuesday">Tuesday</option>
-              <option value="wednesday">Wednesday</option>
-              <option value="thursday">Thursday</option>
-              <option value="friday">Friday</option>
-              <option value="saturday">Saturday</option>
+              <option value="sunday" id="day-0">Sunday</option>
+              <option value="monday" id="day-1">Monday</option>s
+              <option value="tuesday" id="day-2">Tuesday</option>
+              <option value="wednesday" id="day-3">Wednesday</option>
+              <option value="thursday" id="day-4">Thursday</option>
+              <option value="friday" id="day-5">Friday</option>
+              <option value="saturday" id="day-6">Saturday</option>
             </select>
           </div>
           <!-- TIME 1 -->
           <div id="time-1" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-1" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-1" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -173,7 +173,7 @@
           <div id="time-2" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-2" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-2" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -182,7 +182,7 @@
           <div id="time-3" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-3" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-3" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -191,7 +191,7 @@
           <div id="time-4" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-4" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-4" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -200,7 +200,7 @@
           <div id="time-5" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-5" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-5" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -209,7 +209,7 @@
           <div id="time-6" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-6" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-6" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -218,7 +218,7 @@
           <div id="time-7" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-7" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-7" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
@@ -227,7 +227,7 @@
           <div id="time-8" class="flex justify-between border-2 border-black h-14 w-full">
             <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
               <img src="#" alt="cloud image" class="w-1/3 border-2 border-red-600">
-              <div id="time-of-day" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+              <div id="time-of-day-8" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
               <div id="temperature-8" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
