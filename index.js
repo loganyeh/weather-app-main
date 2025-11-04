@@ -40,8 +40,8 @@ function updateDate(){
     weatherData.hour = now.getHours();
 
     // 2025-11-04T00:00
-    weatherData.currentTime = `${weatherData.year}-${weatherData.month + 1}-0${weatherData.date}T${weatherData.hour}:00`;
-    console.log(`Current Time variable in the updateDate() function: ${weatherData.currentTime}`);
+
+    // console.log(`Current Time variable in the updateDate() function: ${weatherData.currentTime}`);
 
     // DATE
     // -----DAY-----
@@ -123,12 +123,10 @@ function hourlyForecast(){
     // weatherData.currentTemperature
     // weatherData.currentTimeArrayIndex
     // console.log(weatherData.currentTimeArrayIndex);
-    console.log(weatherData.data2);
-    
 
     // OK now i need to iterate 8 times and display each times in the hourly forecast
     console.log("for loop running...");
-    for(let i = weatherData.currentTimeArrayIndex + 5; i < weatherData.currentTimeArrayIndex + 8; i++){
+    for(let i = weatherData.currentTimeArrayIndex + 5; i < weatherData.currentTimeArrayIndex + 13; i++){
         count = 1;
         console.log(`Time at ${weatherData.data2.hourly.time[i]} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
         count++;
@@ -168,6 +166,7 @@ async function getWeatherInfo(city){
 
     weatherData.data2 = data2;
 
+    weatherData.currentTime = `${weatherData.year}-${weatherData.month + 1}-0${weatherData.date}T${weatherData.hour}:00`;
     weatherData.currentTemperature = data2.current.temperature_2m;
     const currentCityTempInfo = (element => element == weatherData.currentTime);
     weatherData.currentTimeArrayIndex = (data2.hourly.time.findIndex(currentCityTempInfo));
