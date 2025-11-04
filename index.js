@@ -17,6 +17,7 @@ searchButton.addEventListener("click", async () => {
     updateCityName();
     displayTemp();
     clearInputBar();
+    hourlyForecast();
 });
 
 // FUNCTIONS
@@ -37,6 +38,10 @@ function updateDate(){
     weatherData.date = now.getDate();
     weatherData.year = now.getFullYear();
     weatherData.hour = now.getHours();
+
+    // 2025-11-04T00:00
+    weatherData.currentTime = `${weatherData.year}-${weatherData.month + 1}-0${weatherData.date}T${weatherData.hour}:00`;
+    console.log(`Current Time variable in the updateDate() function: ${weatherData.currentTime}`);
 
     // DATE
     // -----DAY-----
@@ -114,6 +119,25 @@ function displayTemp(){
         ${weatherData.currentTemperature}°;
     `
 }
+function hourlyForecast(){
+    // weatherData.currentTemperature
+    // weatherData.currentTimeArrayIndex
+    console.log(weatherData.currentTimeArrayIndex);
+    console.log(weatherData.data2);
+    console.log(weatherData.data2.hourly.temperature_2m[weatherData.currentTimeArrayIndex]);
+    console.log(weatherData.data2.hourly.time[weatherData.currentTimeArrayIndex]);
+
+    console.log(weatherData.data2.hourly.temperature_2m[weatherData.currentTimeArrayIndex + 1]);
+    console.log(weatherData.data2.hourly.time[weatherData.currentTimeArrayIndex + 1]);
+
+    // OK now i need to iterate 8 times and display each times in the hourly forecast
+    
+
+
+
+
+    
+}
 
 // CALLS 
 updateDate();
@@ -128,6 +152,7 @@ async function getWeatherInfo(city){
         const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`);
         const data = await response.json();
         // console.log(data);
+        weatherData.data = data;
 
         weatherData.cityName = data.results[0].name;
         weatherData.cityState = data.results[0].admin1;
@@ -142,15 +167,17 @@ async function getWeatherInfo(city){
     // WEATHER FORECAST API
     const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
-    console.log(data2);
+    // console.log(data2);
+
+    weatherData.data2 = data2;
 
     weatherData.currentTemperature = data2.current.temperature_2m;
+    const currentCityTempInfo = (element => element == weatherData.currentTime);
+    weatherData.currentTimeArrayIndex = (data2.hourly.time.findIndex(currentCityTempInfo));
 
-    let timeFormatVariableFind = `${weatherData.year}-${weatherData.monthForTemp}-0${weatherData.date}T${weatherData.hour}:00`;
-    const currentCityTempInfo = (element => element == timeFormatVariableFind);
-    let currentTimeIndexForWeather = (data2.hourly.time.findIndex(currentCityTempInfo));
-    console.log(data2.hourly.temperature_2m[currentTimeIndexForWeather]);
+    console.log("------TEST------");
     
+
 }
 
 // SANDBOX
