@@ -232,68 +232,71 @@ function dailyForecast(){
     }
 }
 function weatherCode(){
-
-    let count = 1;
-    for(let i = 0; i < weatherData.weatherCode.length; i++){
-        let element = weatherData.weatherCode[i];
-        console.log(`COUNT ${i}: ${element}`);
-
-        const img = document.getElementById(`day-${count}-weather-img`);
-
+    function ifBlock(element, dom){
         if(element == 0){
-            img.src = `assets/images/icon-sunny.webp`;
+            dom.src = `assets/images/icon-sunny.webp`;
         }
         else if(element == 1 || element == 2 || element == 3){
             if(element == 1){
-                img.src = `assets/images/icon-sunny.webp`;
+                dom.src = `assets/images/icon-sunny.webp`;
             }
             else if(element == 2){
-                img.src = `assets/images/icon-partly-cloudy.webp`;
+                dom.src = `assets/images/icon-partly-cloudy.webp`;
             }
             else if(element == 3){
-                img.src = `assets/images/icon-overcast.webp`;
+                dom.src = `assets/images/icon-overcast.webp`;
             }
         }
         else if(element == 45 || element == 48){
-            img.src = `assets/images/icon-fog.webp`;
+            dom.src = `assets/images/icon-fog.webp`;
         }
         else if(element == 51 || element == 53 || element == 55){
-            img.src = `assets/images/icon-drizzle.webp`;
+            dom.src = `assets/images/icon-drizzle.webp`;
         }
         else if(element == 56 || element == 57){
-            img.src = `assets/images/icon-snow.webp`;
+            dom.src = `assets/images/icon-snow.webp`;
         }
         else if(element == 61 || element == 63 || element == 65){
-            img.src = `assets/images/icon-rain.webp`;
+            dom.src = `assets/images/icon-rain.webp`;
         }
         else if(element == 66 || element == 67){
-            img.src = `assets/images/icon-snow.webp`;
+            dom.src = `assets/images/icon-snow.webp`;
         }
         else if(element == 71 || element == 73 || element == 75){
-            img.src = `assets/images/icon-snow.webp`;
+            dom.src = `assets/images/icon-snow.webp`;
         }
         else if(element == 77){
-            img.src = `assets/images/icon-snow.webp`;
+            dom.src = `assets/images/icon-snow.webp`;
         }
         else if(element == 80 || element == 81 || element == 82){
-            img.src = `assets/images/icon-storm.webp`;
+            dom.src = `assets/images/icon-storm.webp`;
         }
         else if(element == 85 || element == 86){
-            img.src = `assets/images/icon-snow.webp`;
+            dom.src = `assets/images/icon-snow.webp`;
         }
         else if(element == 95){
-            img.src = `assets/images/icon-storm.webp`;
+            dom.src = `assets/images/icon-storm.webp`;
         }
         else if(element == 96 || element == 99){
-            img.src = `assets/images/icon-storm.webp`;
+            dom.src = `assets/images/icon-storm.webp`;
         }
         else{
             console.log(`End of if else statement`);
         }
-
         count++;
     }
-    console.log(weatherData.weatherCode);
+
+    let count = 1;
+    for(let i = 0; i < weatherData.weatherCode.length; i++){
+        let element = weatherData.weatherCode[i];
+        const img = document.getElementById(`day-${count}-weather-img`);
+        ifBlock(element, img);
+    }
+    
+    const imgMain = document.getElementById(`weather-img-for-main-block`);
+    ifBlock(weatherData.currentWeatherCode, imgMain);
+
+
 }
 
 // CALLS 
@@ -350,6 +353,8 @@ async function getWeatherInfo(city){
 
     // WEATHER CODE
     weatherData.weatherCode = data2.daily.weather_code;
+    // CURRENT WEATHER CODE
+    weatherData.currentWeatherCode = data2.current.weather_code;
 
 }
 
