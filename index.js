@@ -292,10 +292,21 @@ function weatherCode(){
         const img = document.getElementById(`day-${count}-weather-img`);
         ifBlock(element, img);
     }
-    
+
+    let counter = 1;
+    let currentIndexWeather = weatherData.currentTimeArrayIndex;
+    for(let i = weatherData.currentTimeArrayIndex; i < weatherData.currentTimeArrayIndex + 8; i++){
+        // HOURLY FORECAST
+        const hourlyImgDiv = document.getElementById(`time-img-${counter}`);
+        const pushElement = weatherData.currentHourlyWeatherCode[currentIndexWeather];
+        ifBlock(pushElement, hourlyImgDiv);
+        
+        counter++;
+        currentIndexWeather++;
+    }
+
     const imgMain = document.getElementById(`weather-img-for-main-block`);
     ifBlock(weatherData.currentWeatherCode, imgMain);
-
 
 }
 
@@ -326,7 +337,7 @@ async function getWeatherInfo(city){
     }
 
     // WEATHER FORECAST API
-    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&daily=temperature_2m_min,temperature_2m_max,weather_code&hourly=temperature_2m&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
+    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&daily=temperature_2m_min,temperature_2m_max,weather_code&hourly=temperature_2m,weather_code&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
     console.log(data2);
 
@@ -355,6 +366,8 @@ async function getWeatherInfo(city){
     weatherData.weatherCode = data2.daily.weather_code;
     // CURRENT WEATHER CODE
     weatherData.currentWeatherCode = data2.current.weather_code;
+    // CURRENT HOURLY WEATHER CODE
+    weatherData.currentHourlyWeatherCode = data2.hourly.weather_code;
 
 }
 
