@@ -182,45 +182,35 @@ function extraWeatherInfo(){
 
 }
 function dailyForecast(){
-    // console.log(weatherData.day);
-
     let count = 1;
     for(let i = weatherData.day; i < weatherData.day + 7; i++){
-
-        console.log(`Count ${count}: ${i % 7}`);
         const div = document.getElementById(`day-${count}-of-the-week`);
 
         switch(i % 7){
             case 0: 
-                console.log("Sun");
+                div.innerHTML = `Sun`;
                 break;
             case 1: 
-                console.log("Mon");
+                div.innerHTML = `Mon`;
                 break;
             case 2: 
-                console.log("Tue");
+                div.innerHTML = `Tue`;
                 break;
             case 3: 
-                console.log("Wed");
+                div.innerHTML = `Wed`;
                 break;
             case 4:
-                console.log("Thu");
+                div.innerHTML = `Thu`;
                 break;
             case 5: 
-                console.log("Fri");
+                div.innerHTML = `Fri`;
                 break;
             case 6: 
-                console.log("Sat");
+                div.innerHTML = `Sat`;
                 break;
         }
-
-        // div.innerHTML = `
-            
-        // `
-
         count++;
     }
-
 }
 
 // CALLS 
