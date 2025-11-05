@@ -119,7 +119,7 @@ function updateDate(){
 }
 function displayTemp(){
     weatherTemperatureNumber.innerHTML = `
-        ${weatherData.currentTemperature}°;
+        ${weatherData.currentTemperature}°
     `
 }
 function hourlyForecast(){
@@ -156,7 +156,7 @@ function hourlyForecast(){
     let currentTimeSliced = Number(weatherData.data2.current.time.slice(11, 13));
 }
 function hourlyForecastDay(){
-    const div = document.getElementById(`day-${weatherData.day}`);
+    // const div = document.getElementById(`day-${weatherData.day}`);
     const select = document.getElementById(`dotw-dropdown`);
     select.value = weatherData.dayOfTheWeek;
 }

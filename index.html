@@ -28,15 +28,15 @@
         <img src="assets/images/logo.svg" alt="weather-app-logo" class="object-cover h-1/2">
       </div>
       <div id="units" class="flex justify-center items-center row-start-1 row-end-1 col-start-10 col-end-11">
-        <select name="units" id="units-select" class="bg-[var(--neutral-800)] cursor-pointer hover:bg-gray-100 border shadow-xs border-gray-50 h-1/2 rounded-xl">
-          <option value="">⚙️ Units</option>
+        <select name="units" id="units-select" class="bg-[var(--neutral-800)] cursor-pointer border shadow-xs border-gray-50 h-1/2 rounded-xl">
+          <!-- <option value="">⚙️ Units</option> -->
           <option value="Fahrenheit">Fahrenheit</option>
-          <option value="Celsius">Celsius</option>
+          <!-- <option value="Celsius">Celsius</option> -->
         </select>
       </div>
       <div id="quote" class="flex justify-center items-center text-5xl row-start-2 row-end-3 col-start-4 col-end-10">How's the sky looking today?</div>
       <div id="search-container" class="grid items-center grid-cols-12 grid-rows-1 justify-around row-start-3 row-end-5 col-start-4 col-end-10">
-        <div class="bg-[var(--neutral-800)] grid grid-cols-12 grid-rows-1 h-1/3 row-start-1 row-end-2 col-start-2 col-end-9 hover:bg-gray-100 cursor-pointer border shadow-xs border-gray-50 rounded-xl">
+        <div class="bg-[var(--neutral-800)] grid grid-cols-12 grid-rows-1 h-1/3 row-start-1 row-end-2 col-start-2 col-end-9 cursor-pointer hover:border hover:shadow-xs hover:border-gray-50 rounded-xl">
           <p class="flex justify-center items-center text-3xl">🔎</p>
           <input type="text" id="input-bar" autofocus placeholder=" Search for a place..." class="text-xl row-start-1 row-end-2 col-start-2 col-end-13">
         </div>
@@ -148,8 +148,8 @@
 
         <div id="hourly-forecast-container" class="flex flex-col justify-evenly col-start-2 col-end-12 row-start-1 row-end-13">
           <div id="forecast-title" class="flex justify-between h-14 w-full">
-            <p class="flex justify-center items-center ">Hourly Forecast</p>
-            <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="bg-[var(--neutral-600)] cursor-pointer hover:bg-gray-100 border shadow-xs border-gray-50 rounded-2xl">
+            <p class="flex justify-center items-center">Hourly Forecast</p>
+            <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="bg-[var(--neutral-600)] cursor-pointer border shadow-xs border-gray-50 rounded-2xl">
               <option value="Sunday" id="day-0">Sunday</option>
               <option value="Monday" id="day-1">Monday</option>
               <option value="Tuesday" id="day-2">Tuesday</option>
