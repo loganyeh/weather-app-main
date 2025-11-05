@@ -230,6 +230,15 @@ function dailyForecast(){
         count++;
     }
 }
+function weatherCode(){
+
+    for(let i = 0; i < weatherData.weatherCode.length; i ++){
+        
+    }
+
+
+
+}
 
 // CALLS 
 updateDate();
@@ -258,7 +267,7 @@ async function getWeatherInfo(city){
     }
 
     // WEATHER FORECAST API
-    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&daily=temperature_2m_min,temperature_2m_max&hourly=temperature_2m&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
+    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&daily=temperature_2m_min,temperature_2m_max,weather_code&hourly=temperature_2m&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
     console.log(data2);
 
@@ -279,14 +288,13 @@ async function getWeatherInfo(city){
     weatherData.precipitation = data2.current.precipitation;
 
     // HIGH
-    // weatherData.highTemps = Math.max(...data2.daily.temperature_2m_max);
     weatherData.highTemps = data2.daily.temperature_2m_max;
     // LOW
-    // weatherData.lowTemps = Math.min(...data2.daily.temperature_2m_min);
     weatherData.lowTemps = data2.daily.temperature_2m_min;
 
-    // console.log(`HIGH: ${weatherData.highTemps}`);
-    // console.log(`LOW: ${weatherData.lowTemps}`);
+    // WEATHER CODE
+    weatherData.weatherCode = data2.daily.weather_code;
+
 }
 
 // SANDBOX
