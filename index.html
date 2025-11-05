@@ -20,16 +20,15 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body class="b">
+<body class="bg-[var(--neutral-900)] text-white">
 
   <div id="container" class="font-mono grid grid-cols-11 grid-rows-11 h-screen w-screen">
       <!-- HEADER -->
-      <div id="weather-now" class="flex justify-center items-center border-2 border-red-600 row-start-1 row-end-2 col-start-2 col-end-4">
-        <img src="#" alt="weather-app-logo" class="w-1/4">
-        <p class="text-2xl w-3/4">Weather Now</p>
+      <div id="weather-now" class="flex justify-center items-center shadow-xs row-start-1 row-end-2 col-start-2 col-end-4">
+        <img src="assets/images/logo.svg" alt="weather-app-logo" class="object-cover h-1/2">
       </div>
       <div id="units" class="flex justify-center items-center row-start-1 row-end-1 col-start-10 col-end-11">
-        <select name="units" id="units-select" class="cursor-pointer hover:bg-gray-100 border-2 border-black h-1/2 rounded-xl">
+        <select name="units" id="units-select" class="bg-[var(--neutral-800)] cursor-pointer hover:bg-gray-100 border shadow-xs border-gray-50 h-1/2 rounded-xl">
           <option value="">⚙️ Units</option>
           <option value="Fahrenheit">Fahrenheit</option>
           <option value="Celsius">Celsius</option>
@@ -37,16 +36,16 @@
       </div>
       <div id="quote" class="flex justify-center items-center text-5xl row-start-2 row-end-3 col-start-4 col-end-10">How's the sky looking today?</div>
       <div id="search-container" class="grid items-center grid-cols-12 grid-rows-1 justify-around row-start-3 row-end-5 col-start-4 col-end-10">
-        <div class="grid grid-cols-12 grid-rows-1 h-1/3 row-start-1 row-end-2 col-start-2 col-end-9 hover:bg-gray-100 cursor-pointer border-2 border-black rounded-xl">
+        <div class="bg-[var(--neutral-800)] grid grid-cols-12 grid-rows-1 h-1/3 row-start-1 row-end-2 col-start-2 col-end-9 hover:bg-gray-100 cursor-pointer border shadow-xs border-gray-50 rounded-xl">
           <p class="flex justify-center items-center text-3xl">🔎</p>
           <input type="text" id="input-bar" autofocus placeholder=" Search for a place..." class="text-xl row-start-1 row-end-2 col-start-2 col-end-13">
         </div>
-        <button id="search-button" class="text-xl rounded-xl h-1/3 col-start-10 col-end-12 hover:bg-blue-300 active:bg-blue-500 active:text-white border-2 border-black cursor-pointer">Search</button>
+        <button id="search-button" class="bg-blue-700 text-xl rounded-xl h-1/3 col-start-10 col-end-12 text-white hover:text-gray-200 hover:bg-blue-800 active:bg-blue-600 active:text-green-300 border-gray-50 cursor-pointer">Search</button>
       </div>
 
       <!-- CURRENT CITY BLOCK -->
       <div id="current-city-weather-container" class="row-start-5 row-end-8 col-start-2 col-end-8">
-        <div id="main-weather-block" class="flex flex-col justify-center items-center border-2 border-blue-500 w-full h-full rounded-3xl">
+        <div id="main-weather-block" class="bg-[url(assets/images/bg-today-large.svg)] bg-cover flex flex-col justify-center items-center w-full h-full rounded-3xl">
           <!-- CURRENT CITY BLOCK INFO -->
           <div id="weather-info-container" class="flex justify-between w-full h-3/5">
             <!-- LEFT SIDE -->
@@ -65,19 +64,19 @@
       </div>
       <!-- EXTRA WEATHER INFO ICONS -->
       <div id="current-weather-details-container" class="flex justify-between row-start-8 row-end-10 col-start-2 col-end-8">
-        <div id="feels-like" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
+        <div id="feels-like" class="bg-[var(--neutral-800)] z-10 border shadow-xs border-gray-50 h-28 w-48 rounded-2xl">
           <div id="feels-like" class="text-md flex items-end w-full h-1/3">Feels Like</div>
           <div id="feels-like-temp" class="text-3xl flex items-end w-full h-2/3">18°</div>
         </div>
-        <div id="humidity" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
+        <div id="humidity" class="bg-[var(--neutral-800)] z-10 border shadow-xs border-gray-50 h-28 w-48 rounded-2xl">
           <div id="feels-like" class="text-md flex items-end w-full h-1/3">Humidity</div>
           <div id="humidity-units" class="text-3xl flex items-end w-full h-2/3">46%</div>
         </div>
-        <div id="wind" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
+        <div id="wind" class="bg-[var(--neutral-800)] z-10 border shadow-xs border-gray-50 h-28 w-48 rounded-2xl">
           <div id="feels-like" class="text-md flex items-end w-full h-1/3">Wind</div>
           <div id="wind-units" class="text-3xl flex items-end w-full h-2/3">14 km/h</div>
         </div>
-        <div id="precipitation" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
+        <div id="precipitation" class="bg-[var(--neutral-800)] z-10 border shadow-xs border-gray-50 h-28 w-48 rounded-2xl">
           <div id="feels-like" class="text-md flex items-end w-full h-1/3">Precipitation</div>
           <div id="precipitation-units" class="text-3xl flex items-end w-full h-2/3">0 mm</div>
         </div>
@@ -86,7 +85,7 @@
       <!-- DAILY FORECAST BLOCK -->
       <div id="daily-forecast-title" class="text-lg flex items-end row-start-9 row-end-10 col-start-2 col-end-4">Daily Forecast</div>
       <div id="daily-forecast-container" class="flex justify-around row-start-10 row-end-12 col-start-2 col-end-8">
-        <div id="day-1-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-1-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-1-of-the-week" class="flex justify-center items-center w-full h-1/4">Tue</div>
           <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-1-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -94,7 +93,7 @@
             <div id="low-temp-1">14°</div>
           </div>
         </div>
-        <div id="day-2-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-2-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-2-of-the-week" class="flex justify-center items-center w-full h-1/4">Wed</div>
           <img src="assets/images/icon-overcast.webp" alt="cloud image" id="day-2-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -102,7 +101,7 @@
             <div id="low-temp-2">15°</div>
           </div>
         </div>
-        <div id="day-3-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-3-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-3-of-the-week" class="flex justify-center items-center w-full h-1/4">Thu</div>
           <img src="assets/images/icon-overcast.webp" alt="cloud image" id="day-3-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -110,7 +109,7 @@
             <div id="low-temp-3">14°</div>
           </div>
         </div>
-        <div id="day-4-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-4-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-4-of-the-week" class="flex justify-center items-center w-full h-1/4">Fri</div>
           <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-4-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -118,7 +117,7 @@
             <div id="low-temp-4">14°</div>
           </div>
         </div>
-        <div id="day-5-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-5-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-5-of-the-week" class="flex justify-center items-center w-full h-1/4">Sat</div>
           <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-5-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -126,7 +125,7 @@
             <div id="low-temp-5">14°</div>
           </div>
         </div>
-        <div id="day-6-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-6-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-6-of-the-week" class="flex justify-center items-center w-full h-1/4">Sun</div>
           <img src="assets/images/icon-drizzle.webp" alt="cloud image" id="day-6-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -134,7 +133,7 @@
             <div id="low-temp-6">14°</div>
           </div>
         </div>
-        <div id="day-7-container" class="border-2 border-black h-full w-28 rounded-3xl">
+        <div id="day-7-container" class="bg-[var(--neutral-800)] border shadow-xs border-gray-50 h-full w-28 rounded-3xl">
           <div id="day-7-of-the-week" class="flex justify-center items-center w-full h-1/4">Mon</div>
           <img src="assets/images/icon-drizzle.webp" alt="cloud image" id="day-7-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
           <div id="high-low" class="flex justify-between items-center w-full h-1/4">
@@ -145,12 +144,12 @@
       </div>
 
       <!-- HOURLY FORECAST BLOCK -->
-      <div id="hourly-forecast-outline" class="grid grid-cols-12 grid-rows-9 border-2 border-black row-start-5 row-end-12 col-start-8 col-end-11">
+      <div id="hourly-forecast-outline" class="bg-[var(--neutral-800)] grid grid-cols-12 grid-rows-9 border shadow-xs rounded-3xl border-gray-50 row-start-5 row-end-12 col-start-8 col-end-11">
 
         <div id="hourly-forecast-container" class="flex flex-col justify-evenly col-start-2 col-end-12 row-start-1 row-end-13">
           <div id="forecast-title" class="flex justify-between h-14 w-full">
             <p class="flex justify-center items-center ">Hourly Forecast</p>
-            <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="cursor-pointer hover:bg-gray-100 border-2 border-black rounded-2xl">
+            <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="bg-[var(--neutral-600)] cursor-pointer hover:bg-gray-100 border shadow-xs border-gray-50 rounded-2xl">
               <option value="Sunday" id="day-0">Sunday</option>
               <option value="Monday" id="day-1">Monday</option>
               <option value="Tuesday" id="day-2">Tuesday</option>
@@ -161,76 +160,76 @@
             </select>
           </div>
           <!-- TIME 1 -->
-          <div id="time-1" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-1" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-1" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-1" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-1" class="text-lg flex items-center w-2/3">12 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-1" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-1" class="flex items-center text-md h-full w-2/3">69°</div>
             </div>
           </div>
-          <div id="time-2" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-2" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-2" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-2" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-2" class="text-lg flex items-center w-2/3">1 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-2" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-2" class="flex items-center text-md h-full w-2/3">70°</div>
             </div>
           </div>
-          <div id="time-3" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-3" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-3" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-3" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-3" class="text-lg flex items-center w-2/3">2 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-3" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-3" class="flex items-center text-md h-full w-2/3">72°</div>
             </div>
           </div>
-          <div id="time-4" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-4" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-4" alt="cloud image" class="object-contain w-1/3">
               <div id="time-of-day-4" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-4" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-4" class="flex items-center text-md h-full w-2/3">72°</div>
             </div>
           </div>
-          <div id="time-5" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-5" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-5" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-5" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-5" class="text-lg flex items-center w-2/3">4 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-5" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-5" class="flex items-center text-md h-full w-2/3">71°</div>
             </div>
           </div>
-          <div id="time-6" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-6" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-6" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-6" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-6" class="text-lg flex items-center w-2/3">5 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-6" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-6" class="flex items-center text-md h-full w-2/3">71°</div>
             </div>
           </div>
-          <div id="time-7" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-7" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-7" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-7" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-7" class="text-lg flex items-center w-2/3">6 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-7" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-7" class="flex items-center text-md h-full w-2/3">69°</div>
             </div>
           </div>
-          <div id="time-8" class="flex justify-between border-2 border-black h-14 w-full">
+          <div id="time-8" class="rounded-2xl bg-[var(--neutral-600)] flex justify-between border shadow-xs border-gray-50 h-14 w-full">
             <div id="left-side" class="flex w-1/2">
               <img src="assets/images/icon-sunny.webp" id="time-img-8" alt="cloud image" class="object-contain w-1/3">
-              <div id="time-of-day-8" class="text-lg flex items-center w-2/3">3 PM</div>
+              <div id="time-of-day-8" class="text-lg flex items-center w-2/3">7 PM</div>
             </div>
             <div id="right-side" class="flex justify-end w-1/4">
-              <div id="temperature-8" class="flex items-center text-md h-full w-2/3">20°</div>
+              <div id="temperature-8" class="flex items-center text-md h-full w-2/3">67°</div>
             </div>
           </div>
         </div>
