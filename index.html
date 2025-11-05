@@ -20,24 +20,24 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
+<body class="b">
 
-  <div id="container" class="font-mono grid grid-cols-11 grid-rows-11 border-4 border-red-600 h-screen w-screen">
+  <div id="container" class="font-mono grid grid-cols-11 grid-rows-11 h-screen w-screen">
       <!-- HEADER -->
       <div id="weather-now" class="flex justify-center items-center border-2 border-red-600 row-start-1 row-end-2 col-start-2 col-end-4">
-        <img src="#" alt="weather-app-logo" class="border-2 border-red-600 w-1/4">
+        <img src="#" alt="weather-app-logo" class="w-1/4">
         <p class="text-2xl w-3/4">Weather Now</p>
       </div>
-      <div id="units" class="flex justify-center items-center border-2 border-red-600 row-start-1 row-end-1 col-start-10 col-end-11">
+      <div id="units" class="flex justify-center items-center row-start-1 row-end-1 col-start-10 col-end-11">
         <select name="units" id="units-select" class="cursor-pointer hover:bg-gray-100 border-2 border-black h-1/2 rounded-xl">
           <option value="">⚙️ Units</option>
           <option value="Fahrenheit">Fahrenheit</option>
           <option value="Celsius">Celsius</option>
         </select>
       </div>
-      <div id="quote" class="flex justify-center items-center text-4xl border-4 border-black row-start-2 row-end-3 col-start-4 col-end-10">How's the sky looking today?</div>
-      <div id="search-container" class="grid items-center grid-cols-12 grid-rows-1 justify-around border-2 border-red-600 row-start-3 row-end-5 col-start-4 col-end-10">
-        <div class="grid grid-cols-12 grid-rows-1 h-1/3 row-start-1 row-end-2 col-start-2 col-end-9 hover:bg-gray-100 cursor-pointer border-2 border-blue-600 rounded-xl">
+      <div id="quote" class="flex justify-center items-center text-5xl row-start-2 row-end-3 col-start-4 col-end-10">How's the sky looking today?</div>
+      <div id="search-container" class="grid items-center grid-cols-12 grid-rows-1 justify-around row-start-3 row-end-5 col-start-4 col-end-10">
+        <div class="grid grid-cols-12 grid-rows-1 h-1/3 row-start-1 row-end-2 col-start-2 col-end-9 hover:bg-gray-100 cursor-pointer border-2 border-black rounded-xl">
           <p class="flex justify-center items-center text-3xl">🔎</p>
           <input type="text" id="input-bar" autofocus placeholder=" Search for a place..." class="text-xl row-start-1 row-end-2 col-start-2 col-end-13">
         </div>
@@ -45,99 +45,99 @@
       </div>
 
       <!-- CURRENT CITY BLOCK -->
-      <div id="current-city-weather-container" class="border-2 border-red-500 row-start-5 row-end-8 col-start-2 col-end-8">
+      <div id="current-city-weather-container" class="row-start-5 row-end-8 col-start-2 col-end-8">
         <div id="main-weather-block" class="flex flex-col justify-center items-center border-2 border-blue-500 w-full h-full rounded-3xl">
           <!-- CURRENT CITY BLOCK INFO -->
-          <div id="weather-info-container" class="flex justify-between w-full h-3/5 border-2 border-purple-500">
+          <div id="weather-info-container" class="flex justify-between w-full h-3/5">
             <!-- LEFT SIDE -->
-            <div id="city-date" class="flex flex-col justify-center border-2 border-red-500 h-full w-1/3">
-              <div id="city-text" class="flex items-end text-2xl overflow-visible whitespace-nowrap border-2 border-red-500 w-full h-1/3">Berlin, Germany</div>
-              <div id="date-text" class="text-sm overflow-visible whitespace-nowrap border-2 border-red-500 w-full h-1/3">Tuesday. Aug 5, 2025</div>
+            <div id="city-date" class="flex flex-col justify-center h-full w-1/3">
+              <div id="city-text" class="flex items-end text-2xl overflow-visible whitespace-nowrap w-full h-1/3">Berlin, Germany</div>
+              <div id="date-text" class="text-sm overflow-visible whitespace-nowrap w-full h-1/3">Tuesday. Aug 5, 2025</div>
             </div>
             <!-- RIGHT SIDE -->
-            <div id="img-temp" class="flex border-2 border-red-500 h-full w-1/3">
-              <img src="assets/images/icon-sunny.webp" alt="image of weather icon" id="weather-img-for-main-block" class="flex justify-center object-contain items-center border-2 border-red-500 h-full w-2/5">
+            <div id="img-temp" class="flex h-full w-1/3">
+              <img src="assets/images/icon-sunny.webp" alt="image of weather icon" id="weather-img-for-main-block" class="flex justify-center object-contain items-center h-full w-2/5">
               <!-- flex utility class not working need to fix later when you add the image to it -->
-              <div id="weather-temperature-number" class="flex justify-center overflow-visible whitespace-nowrap items-center text-5xl border-2 border-red-500 h-full w-3/5">20°</div>
+              <div id="weather-temperature-number" class="flex justify-center overflow-visible whitespace-nowrap items-center text-5xl h-full w-3/5">20°</div>
             </div>
           </div>
         </div>
       </div>
       <!-- EXTRA WEATHER INFO ICONS -->
-      <div id="current-weather-details-container" class="flex justify-between border-2 border-blue-600 row-start-8 row-end-10 col-start-2 col-end-8">
+      <div id="current-weather-details-container" class="flex justify-between row-start-8 row-end-10 col-start-2 col-end-8">
         <div id="feels-like" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
-          <div id="feels-like" class="text-md flex items-end border-2 border-red-500 w-full h-1/3">Feels Like</div>
-          <div id="feels-like-temp" class="text-3xl flex items-end border-2 border-red-500 w-full h-2/3">18°</div>
+          <div id="feels-like" class="text-md flex items-end w-full h-1/3">Feels Like</div>
+          <div id="feels-like-temp" class="text-3xl flex items-end w-full h-2/3">18°</div>
         </div>
         <div id="humidity" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
-          <div id="feels-like" class="text-md flex items-end border-2 border-red-500 w-full h-1/3">Humidity</div>
-          <div id="humidity-units" class="text-3xl flex items-end border-2 border-red-500 w-full h-2/3">46%</div>
+          <div id="feels-like" class="text-md flex items-end w-full h-1/3">Humidity</div>
+          <div id="humidity-units" class="text-3xl flex items-end w-full h-2/3">46%</div>
         </div>
         <div id="wind" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
-          <div id="feels-like" class="text-md flex items-end border-2 border-red-500 w-full h-1/3">Wind</div>
-          <div id="wind-units" class="text-3xl flex items-end border-2 border-red-500 w-full h-2/3">14 km/h</div>
+          <div id="feels-like" class="text-md flex items-end w-full h-1/3">Wind</div>
+          <div id="wind-units" class="text-3xl flex items-end w-full h-2/3">14 km/h</div>
         </div>
         <div id="precipitation" class="z-10 border-2 border-black h-28 w-48 rounded-2xl">
-          <div id="feels-like" class="text-md flex items-end border-2 border-red-500 w-full h-1/3">Precipitation</div>
-          <div id="precipitation-units" class="text-3xl flex items-end border-2 border-red-500 w-full h-2/3">0 mm</div>
+          <div id="feels-like" class="text-md flex items-end w-full h-1/3">Precipitation</div>
+          <div id="precipitation-units" class="text-3xl flex items-end w-full h-2/3">0 mm</div>
         </div>
       </div>
 
       <!-- DAILY FORECAST BLOCK -->
-      <div id="daily-forecast-title" class="text-lg flex items-end border-2 border-gray-400 row-start-9 row-end-10 col-start-2 col-end-4">Daily Forecast</div>
-      <div id="daily-forecast-container" class="flex justify-around border-2 border-red-600 row-start-10 row-end-12 col-start-2 col-end-8">
+      <div id="daily-forecast-title" class="text-lg flex items-end row-start-9 row-end-10 col-start-2 col-end-4">Daily Forecast</div>
+      <div id="daily-forecast-container" class="flex justify-around row-start-10 row-end-12 col-start-2 col-end-8">
         <div id="day-1-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-1-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Tue</div>
-          <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-1-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-1-of-the-week" class="flex justify-center items-center w-full h-1/4">Tue</div>
+          <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-1-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-1">20°</div>
             <div id="low-temp-1">14°</div>
           </div>
         </div>
         <div id="day-2-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-2-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Wed</div>
-          <img src="assets/images/icon-overcast.webp" alt="cloud image" id="day-2-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-2-of-the-week" class="flex justify-center items-center w-full h-1/4">Wed</div>
+          <img src="assets/images/icon-overcast.webp" alt="cloud image" id="day-2-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-2">21°</div>
             <div id="low-temp-2">15°</div>
           </div>
         </div>
         <div id="day-3-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-3-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Thu</div>
-          <img src="assets/images/icon-overcast.webp" alt="cloud image" id="day-3-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-3-of-the-week" class="flex justify-center items-center w-full h-1/4">Thu</div>
+          <img src="assets/images/icon-overcast.webp" alt="cloud image" id="day-3-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-3">20°</div>
             <div id="low-temp-3">14°</div>
           </div>
         </div>
         <div id="day-4-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-4-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Fri</div>
-          <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-4-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-4-of-the-week" class="flex justify-center items-center w-full h-1/4">Fri</div>
+          <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-4-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-4">24°</div>
             <div id="low-temp-4">14°</div>
           </div>
         </div>
         <div id="day-5-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-5-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Sat</div>
-          <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-5-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-5-of-the-week" class="flex justify-center items-center w-full h-1/4">Sat</div>
+          <img src="assets/images/icon-sunny.webp" alt="cloud image" id="day-5-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-5">20°</div>
             <div id="low-temp-5">14°</div>
           </div>
         </div>
         <div id="day-6-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-6-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Sun</div>
-          <img src="assets/images/icon-drizzle.webp" alt="cloud image" id="day-6-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-6-of-the-week" class="flex justify-center items-center w-full h-1/4">Sun</div>
+          <img src="assets/images/icon-drizzle.webp" alt="cloud image" id="day-6-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-6">20°</div>
             <div id="low-temp-6">14°</div>
           </div>
         </div>
         <div id="day-7-container" class="border-2 border-black h-full w-28 rounded-3xl">
-          <div id="day-7-of-the-week" class="flex justify-center items-center border-2 border-red-500 w-full h-1/4">Mon</div>
-          <img src="assets/images/icon-drizzle.webp" alt="cloud image" id="day-7-weather-img" class="object-contain flex justify-center items-center border-2 border-red-500 w-full h-2/4">
-          <div id="high-low" class="flex justify-between items-center border-2 border-red-500 w-full h-1/4">
+          <div id="day-7-of-the-week" class="flex justify-center items-center w-full h-1/4">Mon</div>
+          <img src="assets/images/icon-drizzle.webp" alt="cloud image" id="day-7-weather-img" class="object-contain flex justify-center items-center w-full h-2/4">
+          <div id="high-low" class="flex justify-between items-center w-full h-1/4">
             <div id="high-temp-7">20°</div>
             <div id="low-temp-7">14°</div>
           </div>
@@ -147,10 +147,10 @@
       <!-- HOURLY FORECAST BLOCK -->
       <div id="hourly-forecast-outline" class="grid grid-cols-12 grid-rows-9 border-2 border-black row-start-5 row-end-12 col-start-8 col-end-11">
 
-        <div id="hourly-forecast-container" class="flex flex-col justify-evenly border-2 border-red-600 col-start-2 col-end-12 row-start-1 row-end-13">
-          <div id="forecast-title" class="flex justify-between border-2 border-black h-14 w-full">
-            <p class="flex justify-center items-center border-2 border-red-600">Hourly Forecast</p>
-            <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="cursor-pointer hover:bg-gray-100 border-2 border-red-600">
+        <div id="hourly-forecast-container" class="flex flex-col justify-evenly col-start-2 col-end-12 row-start-1 row-end-13">
+          <div id="forecast-title" class="flex justify-between h-14 w-full">
+            <p class="flex justify-center items-center ">Hourly Forecast</p>
+            <select name="days-of-the-week-dropdown" id="dotw-dropdown" class="cursor-pointer hover:bg-gray-100 border-2 border-black rounded-2xl">
               <option value="Sunday" id="day-0">Sunday</option>
               <option value="Monday" id="day-1">Monday</option>
               <option value="Tuesday" id="day-2">Tuesday</option>
@@ -162,75 +162,75 @@
           </div>
           <!-- TIME 1 -->
           <div id="time-1" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-1" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-1" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-1" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-1" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-1" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-1" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-2" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-2" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-2" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-2" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-2" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-2" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-2" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-3" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-3" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-3" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-3" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-3" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-3" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-3" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-4" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-4" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-4" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-4" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-4" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-4" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-4" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-5" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-5" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-5" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-5" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-5" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-5" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-5" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-6" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-6" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-6" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-6" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-6" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-6" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-6" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-7" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-7" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-7" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-7" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-7" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-7" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-7" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
           <div id="time-8" class="flex justify-between border-2 border-black h-14 w-full">
-            <div id="left-side" class="flex w-1/2 border-2 border-purple-600">
-              <img src="#" id="time-img-8" alt="cloud image" class="object-contain w-1/3 border-2 border-red-600">
-              <div id="time-of-day-8" class="text-lg flex items-center w-2/3 border-2 border-red-600">3 PM</div>
+            <div id="left-side" class="flex w-1/2">
+              <img src="assets/images/icon-sunny.webp" id="time-img-8" alt="cloud image" class="object-contain w-1/3">
+              <div id="time-of-day-8" class="text-lg flex items-center w-2/3">3 PM</div>
             </div>
-            <div id="right-side" class="flex justify-end w-1/4 border-2 border-purple-600">
-              <div id="temperature-8" class="flex items-center text-md border-2 border-red-600 h-full w-2/3">20°</div>
+            <div id="right-side" class="flex justify-end w-1/4">
+              <div id="temperature-8" class="flex items-center text-md h-full w-2/3">20°</div>
             </div>
           </div>
         </div>
@@ -238,57 +238,6 @@
       </div>
 
   </div>
-
-
-
-  Units
-
-  Switch to Imperial/Metric
-
-  Temperature
-
-  Celsius (°C)
-  Fahrenheit (°F)
-
-  Wind Speed
-
-  km/h
-  mph
-
-  Precipitation
-
-  Millimeters (mm)
-  Inches (in)
-
-  How's the sky looking today?
-
-  Search for a city, e.g., New York
-  Search
-
-  Feels like
-  <!-- Insert temperature here -->
-
-  Humidity
-  <!-- Insert humidity here -->
-
-  Wind
-  <!-- Insert wind here -->   
-  
-  Precipitation
-  <!-- Insert precipitation here -->
-
-  Daily forecast
-  <!-- Insert daily forecast for the next 7 days here -->
-
-  Hourly forecast
-  <!-- Insert hourly forecast for the selected day here -->
-
-  
-
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
 
   <script src="index.js"></script>
 </body>
