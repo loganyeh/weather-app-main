@@ -20,6 +20,7 @@ searchButton.addEventListener("click", async () => {
     hourlyForecast();
     extraWeatherInfo();
     dailyForecast();
+    weatherCode();
 });
 
 // FUNCTIONS
@@ -185,7 +186,7 @@ function extraWeatherInfo(){
 function dailyForecast(){
     let count = 1;
     for(let i = weatherData.day; i < weatherData.day + 7; i++){
-        console.log(`COUNT ${count}: ${i}`)
+        // console.log(`COUNT ${count}: ${i}`)
         const div = document.getElementById(`day-${count}-of-the-week`);
         const highDiv = document.getElementById(`high-temp-${count}`);
         const lowDiv = document.getElementById(`low-temp-${count}`);
@@ -232,12 +233,67 @@ function dailyForecast(){
 }
 function weatherCode(){
 
-    for(let i = 0; i < weatherData.weatherCode.length; i ++){
-        
+    let count = 1;
+    for(let i = 0; i < weatherData.weatherCode.length; i++){
+        let element = weatherData.weatherCode[i];
+        console.log(`COUNT ${i}: ${element}`);
+
+        const img = document.getElementById(`day-${count}-weather-img`);
+
+        if(element == 0){
+            img.src = `assets/images/icon-sunny.webp`;
+        }
+        else if(element == 1 || element == 2 || element == 3){
+            if(element == 1){
+                img.src = `assets/images/icon-sunny.webp`;
+            }
+            else if(element == 2){
+                img.src = `assets/images/icon-partly-cloudy.webp`;
+            }
+            else if(element == 3){
+                img.src = `assets/images/icon-overcast.webp`;
+            }
+        }
+        else if(element == 45 || element == 48){
+            img.src = `assets/images/icon-fog.webp`;
+        }
+        else if(element == 51 || element == 53 || element == 55){
+            img.src = `assets/images/icon-drizzle.webp`;
+        }
+        else if(element == 56 || element == 57){
+            img.src = `assets/images/icon-snow.webp`;
+        }
+        else if(element == 61 || element == 63 || element == 65){
+            img.src = `assets/images/icon-rain.webp`;
+        }
+        else if(element == 66 || element == 67){
+            img.src = `assets/images/icon-snow.webp`;
+        }
+        else if(element == 71 || element == 73 || element == 75){
+            img.src = `assets/images/icon-snow.webp`;
+        }
+        else if(element == 77){
+            img.src = `assets/images/icon-snow.webp`;
+        }
+        else if(element == 80 || element == 81 || element == 82){
+            img.src = `assets/images/icon-storm.webp`;
+        }
+        else if(element == 85 || element == 86){
+            img.src = `assets/images/icon-snow.webp`;
+        }
+        else if(element == 95){
+            img.src = `assets/images/icon-storm.webp`;
+        }
+        else if(element == 96 || element == 99){
+            img.src = `assets/images/icon-storm.webp`;
+        }
+        else{
+            console.log(`End of if else statement`);
+        }
+
+        count++;
     }
-
-
-
+    console.log(weatherData.weatherCode);
 }
 
 // CALLS 
