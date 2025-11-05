@@ -19,6 +19,7 @@ searchButton.addEventListener("click", async () => {
     clearInputBar();
     hourlyForecast();
     extraWeatherInfo();
+    dailyForecast();
 });
 
 // FUNCTIONS
@@ -139,7 +140,7 @@ function hourlyForecast(){
             APM = "PM";
         }
 
-        console.log(`Time at ${Number(weatherData.data2.hourly.time[i].slice(11, 13))} ${APM} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
+        // console.log(`Time at ${Number(weatherData.data2.hourly.time[i].slice(11, 13))} ${APM} is ${weatherData.data2.hourly.temperature_2m[i]} F°`);
         // PROABBLY FORMAT THE TIME INTO 12 HOUR FORMAT
         div.innerHTML = `
             ${weatherData.data2.hourly.temperature_2m[i]}°
@@ -184,29 +185,46 @@ function extraWeatherInfo(){
 function dailyForecast(){
     let count = 1;
     for(let i = weatherData.day; i < weatherData.day + 7; i++){
+        console.log(`COUNT ${count}: ${i}`)
         const div = document.getElementById(`day-${count}-of-the-week`);
+        const highDiv = document.getElementById(`high-temp-${count}`);
+        const lowDiv = document.getElementById(`low-temp-${count}`);
 
         switch(i % 7){
             case 0: 
                 div.innerHTML = `Sun`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
             case 1: 
                 div.innerHTML = `Mon`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
             case 2: 
                 div.innerHTML = `Tue`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
             case 3: 
                 div.innerHTML = `Wed`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
             case 4:
                 div.innerHTML = `Thu`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
             case 5: 
                 div.innerHTML = `Fri`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
             case 6: 
                 div.innerHTML = `Sat`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
                 break;
         }
         count++;
@@ -216,7 +234,6 @@ function dailyForecast(){
 // CALLS 
 updateDate();
 hourlyForecastDay();
-dailyForecast();
 
 // ASYNCS
 async function getWeatherInfo(city){
@@ -241,7 +258,7 @@ async function getWeatherInfo(city){
     }
 
     // WEATHER FORECAST API
-    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&hourly=temperature_2m&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
+    const response2 = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${weatherData.latitude}&longitude=${weatherData.longitude}&daily=temperature_2m_min,temperature_2m_max&hourly=temperature_2m&current=temperature_2m,apparent_temperature,wind_speed_10m,weather_code,precipitation,relative_humidity_2m&temperature_unit=fahrenheit`);
     const data2 = await response2.json();
     console.log(data2);
 
@@ -260,6 +277,16 @@ async function getWeatherInfo(city){
     weatherData.wind = data2.current.wind_speed_10m;
     // PRECIPITATION
     weatherData.precipitation = data2.current.precipitation;
+
+    // HIGH
+    // weatherData.highTemps = Math.max(...data2.daily.temperature_2m_max);
+    weatherData.highTemps = data2.daily.temperature_2m_max;
+    // LOW
+    // weatherData.lowTemps = Math.min(...data2.daily.temperature_2m_min);
+    weatherData.lowTemps = data2.daily.temperature_2m_min;
+
+    // console.log(`HIGH: ${weatherData.highTemps}`);
+    // console.log(`LOW: ${weatherData.lowTemps}`);
 }
 
 // SANDBOX
