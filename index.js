@@ -193,38 +193,38 @@ function dailyForecast(){
         switch(i % 7){
             case 0: 
                 div.innerHTML = `Sun`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
             case 1: 
                 div.innerHTML = `Mon`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
             case 2: 
                 div.innerHTML = `Tue`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
             case 3: 
                 div.innerHTML = `Wed`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
             case 4:
                 div.innerHTML = `Thu`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
             case 5: 
                 div.innerHTML = `Fri`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
             case 6: 
                 div.innerHTML = `Sat`;
-                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}`;
-                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}`;
+                lowDiv.innerHTML = `${weatherData.lowTemps[i % 7]}°`;
+                highDiv.innerHTML = `${weatherData.highTemps[i % 7]}°`;
                 break;
         }
         count++;
